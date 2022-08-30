@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                <h2>Daromad</h2>
+                
+                <a href="{% url 'Daromad-add' %}" type="button" class="btn btn-primary">Qo'shish</a>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Daromadlar (Mahsulot va xizmatlar bo'yicha)</th>
+                            <th scope="col">Oylik hisobot uchun</th>
+                            <th scope="col">Sana</th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        {% for item in daromad %}
+                        <tr>
+                            <th scope="row">{{item.id}}</th>
+                            <td>Joriy oyda olingan daromad</td>
+                            <td>{{item.daromad}}</td>
+                            <td>{{item.time}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Joriy oydagi mijozlar soni</td>
+                            <td>{{item.mijozlar_soni}}</td>
+                            <td>{{item.time}}</td>
+                        </tr>
+
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <h2>Xarajatlar</h2>
+                <a href="{% url 'harajat-add' %}" type="button" class="btn btn-primary">Qo'shish</a>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Xarajatlar</th>
+                            <th scope="col">Oylik hisobot uchun</th>
+                            <th scope="col">Sana</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in xarajatlar %}
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Ish haqi</td>
+                            <td>{{item.count}}</td>
+                            <td>{{item.time}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Marketing reklama</td>
+                            <td>{{item.reklama}}</td>
+                            <td>{{item.time}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
